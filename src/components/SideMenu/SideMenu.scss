@@ -4,7 +4,7 @@
     top: 0;
     transition: 400ms left cubic-bezier(0.77, 0, 0.175, 1);
     // height: calc(100% - var(--header-and-footer-height));
-    z-index: 2;
+    z-index: var(--side-menu-z-index);
     background-color: white;
     box-shadow: 1px 0px 0px rgb(0 0 0 / 7%);
     height: 100%;
