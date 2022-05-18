@@ -1,0 +1,30 @@
+:root {
+  --background-color: #ffffff;
+  --main-color-green: #71C679;
+  --main-color-blue: #A7E0F7;
+  --main-color-pink: #D4A1B6;
+  --header-height: 5rem;
+  --footer-height: 5rem;
+  --side-menu-width: 12rem;
+  --side-menu-width-minus: -12rem;
+  --border-color-gray: #cdc7c7;
+  --header-and-footer-height: 12rem;
+  --action-btns-height: 3rem;
+
+  span {
+    line-height: 1.2;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .disabled {
+    opacity: 0.38;
+    pointer-events: none;
+  }
+
+  textarea:focus, input:focus{
+    outline: none;
+}
+}

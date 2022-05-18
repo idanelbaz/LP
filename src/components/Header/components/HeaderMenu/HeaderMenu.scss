@@ -1,0 +1,50 @@
+.header-menu {
+    position: relative;
+    z-index: 2;
+    height: 22.5px;
+    width: 22.5px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: 400ms left cubic-bezier(0.77, 0, 0.175, 1);
+  
+    span,
+    span::before,
+    span::after {
+      position: absolute;
+      content: '';
+      width: 22.5px;
+      height: 2px;
+      background: #202D3B;
+      border-radius: 1.5rem;
+      transition: 600ms cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  
+    span::before {
+      top: -8px;
+    }
+  
+    span::after {
+      top: 8px;
+    }
+  
+    &.menu-open > span {
+      background: transparent;
+    }
+  
+    &.menu-open > span::before,
+    &.menu-open > span::after {
+      background: #202D3B;
+      top: 0;
+    }
+  
+    &.menu-open > span::before {
+      transform: rotate(-225deg);
+    }
+  
+    &.menu-open > span::after {
+      transform: rotate(225deg);
+    }
+}
+

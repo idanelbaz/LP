@@ -1,0 +1,4 @@
+export enum CoreActionTypes {
+  SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
+  GO_TO_TIMELINE = "GO_TO_TIMELINE"
+}
