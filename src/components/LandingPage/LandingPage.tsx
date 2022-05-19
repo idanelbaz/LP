@@ -6,6 +6,7 @@ import { Pages } from '../../store/core/core.interface';
 import { usersActions } from '../../store/users/users.actions';
 import { usersSelector } from '../../store/users/users.selectors';
 import BrokenImg from "../../style/images/broken-image.svg";
+import CarouselComp from "./components/CarouselComp/CarouselComp"
 import "./LandingPage.scss";
 
 
@@ -33,7 +34,14 @@ const LandingPage: React.FC = (): JSX.Element => {
     };
 
     return (
-        <div>LandingPage</div>
+        <div className='landing-page-container'>
+            <div className="landing-page-container__main-txt-container">
+                <span className="main-txt">
+                    {mainTxt}
+                </span>
+            </div>
+            <CarouselComp />
+        </div>
     )
 }
 
