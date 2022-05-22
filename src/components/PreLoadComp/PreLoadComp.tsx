@@ -24,6 +24,7 @@ import SliderImg4 from "../../style/images/homepageSlider/image4.png";
 import SliderImg5 from "../../style/images/homepageSlider/image5.jpg";
 import SliderImg6 from "../../style/images/homepageSlider/image6.png";
 import SliderImg7 from "../../style/images/homepageSlider/image7.jpg";
+import InfoIcon from "../../style/images/info-icon.svg";
 import { preloadImages } from "../../utils/utils";
 import "./PreLoad.scss";
 
@@ -54,7 +55,8 @@ const ImagesLoaderComp: React.FC = () => {
       BirthdayIcon,
       DocumentIcon,
       MarriageIcon,
-      OtherIcon
+      OtherIcon,
+      InfoIcon
     ];
 
     preloadImages(appImages);

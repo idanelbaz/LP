@@ -1,15 +1,11 @@
 .login-container {
   width: 20rem;
   height: 20rem;
-  padding: 2rem;
+  padding: 1rem 1.5rem;
   max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  > * {
-    margin-bottom: 1.5rem;
-  }
 
   .input-container {
     width: 100%;
@@ -18,6 +14,7 @@
   .title {
     font-size: 2rem;
     font-weight: 600;
+    margin-bottom: 1.5rem;
   }
 
   .action-btn-continue{

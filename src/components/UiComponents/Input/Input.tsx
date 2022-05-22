@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
-import { firstLettersNotEmpty } from "../../..//utils/utils";
+import { ReactComponent as InfoIcon } from '../../../style/images/info-icon.svg';
+import { Tooltip } from "@mui/material";
 import "./Input.scss";
+
+const renderTooltipEl = (txt: string[]) => {
+    return (
+        <div className="tooltip-info-el">
+            {txt.map(row =>
+                <li key={row}>{row}</li>
+            )}
+        </div>
+    )
+}
 
 interface InputTextProps {
     value: string | number,
@@ -11,38 +22,48 @@ interface InputTextProps {
     isError?: boolean,
     errorTxt?: string,
     type: React.InputHTMLAttributes<unknown>['type'],
+    isInfoBtn: boolean,
+    infoTxt?: string[],
+    inputProps?: any
 }
 
-const Input: React.FC<InputTextProps> = ({ value, field, onChange, placeholder, isError, type, errorTxt }): JSX.Element => {
+const Input: React.FC<InputTextProps> = ({ value, field, onChange,
+    placeholder, isError, type, errorTxt, isInfoBtn, infoTxt, inputProps }): JSX.Element => {
+
+    const [isInfoMenuOpen, setIsInfoMenuOpen] = useState(false)
+
+    const toggleIsOpen = () => {
+        setIsInfoMenuOpen(prev => !prev)
+    };
+
     return (
-        <div>
-            {/* <input
-                type={type}
-                autoFocus
-                placeholder={placeholder}
-                value={value}
-                onChange={(event) => {
-                    if (type === "text" || type === "password") {
-                        if (firstLettersNotEmpty(event.target.value)) return;
-                        onChange(field, event.target.value);
-                    }
-                    else {
-                        const numbers = /^[0-9]+$/;
-                        if (event.target.value.match(numbers)) {
-                            onChange(field, Number(event.target.value));
-                        }
-                        else if (event.target.value === '') {
-                            onChange(field, "");
-                        }
-                    }
-                }}
-            /> */}
-            <label className="input">
-                <input className="input__field" type="text" placeholder=" " />
-                <span className="input__label">Some Fancy Label</span>
-            </label>
-            {isError &&
-                <span>{errorTxt}</span>
+        <div className="input-container">
+            <div className={classNames("input-txt-and-err-wrapper",
+                (!isInfoBtn || !infoTxt) && "full-width")}>
+                <label className="input">
+                    <input
+                        onChange={(event => onChange(field, event.target.value))}
+                        type={type} className="input__field" placeholder=" "
+                        value={value}
+                        {...inputProps}
+                    />
+                    <span className="input__label">{placeholder}</span>
+                </label>
+                {isError &&
+                    <span className="err-txt">{errorTxt}</span>
+                }
+            </div>
+            {isInfoBtn && infoTxt &&
+                <Tooltip
+                    onClose={() => setIsInfoMenuOpen(false)}
+                    title={renderTooltipEl(infoTxt)}
+                    arrow
+                    open={isInfoMenuOpen}
+                >
+                    <div onClick={toggleIsOpen} className="info-icon-wrapper">
+                        <InfoIcon />
+                    </div>
+                </Tooltip>
             }
         </div>
     );

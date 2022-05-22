@@ -1,35 +1,75 @@
-.input {
-    position: relative;
-    
-    &__label {
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding: calc(.5rem * 0.75) calc(.5rem * .5);
-      margin: calc(.5rem * 0.75 + 3px) calc(.5rem * .5);
-      white-space: nowrap;
-      transform: translate(0, 0);
-      transform-origin: 0 0;
-      transition: transform 120ms ease-in;
-      font-weight: bold;
-      line-height: 1.2;
-      background: white;
-    }
-    &__field {
-      box-sizing: border-box;
-      display: block;
-      width: 100%;
-      border: 3px solid currentColor;
-      padding: calc(.5rem * 1.5) .5rem;
-      color: currentColor;
-      background: transparent;
-      border-radius: 4px;
-      
-      &:focus,
-      &:not(:placeholder-shown) {
-        & + .input__label {
-          transform: translate(.25rem, -65%) scale(.8);
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    margin-bottom: 0.5rem;
+
+    .input-txt-and-err-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+
+      .input {
+        position: relative;
+        margin-bottom: 0.3rem;
+        
+        &__label {
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding: calc(.5rem * 0.75) calc(.5rem * .5);
+          margin: calc(.5rem * 0.75 + 3px) calc(.5rem * .5);
+          white-space: nowrap;
+          transform: translate(0, 0);
+          transform-origin: 0 0;
+          transition: transform 120ms ease-in;
+          font-weight: bold;
+          line-height: 1.2;
+          background: white;
         }
-      }
+        &__field {
+          box-sizing: border-box;
+          display: block;
+          width: 100%;
+          border: 1px solid currentColor;
+          padding: calc(.5rem * 1.5) .5rem;
+          color: currentColor;
+          background: transparent;
+          border-radius: 4px;
+          
+          &:focus,
+          &:not(:placeholder-shown) {
+            & + .input__label {
+              transform: translate(.25rem, -65%) scale(.8);
+            }
+          }
+        }
+    } 
+
+    .err-txt {
+      color: red;
     }
   }
+
+    .info-icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+      top: 4px;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+}
+
+.tooltip-info-el {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  * > {
+    list-style: circle;
+  }
+}
