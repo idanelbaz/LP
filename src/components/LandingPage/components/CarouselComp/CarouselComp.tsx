@@ -75,7 +75,7 @@ const CarouselComp: React.FC = (): JSX.Element => {
             >
                 {images.map(item => {
                     return (
-                        <div className='carousel-item'>
+                        <div className='carousel-item' key={item.url}>
                             <span className='title'>{item.title}</span>
                             <img
                                 alt=''

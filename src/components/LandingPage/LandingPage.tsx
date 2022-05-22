@@ -7,6 +7,7 @@ import { usersActions } from '../../store/users/users.actions';
 import { usersSelector } from '../../store/users/users.selectors';
 import BrokenImg from "../../style/images/broken-image.svg";
 import CarouselComp from "./components/CarouselComp/CarouselComp"
+import LoginModal from "./components/LoginModal/LoginModal";
 import "./LandingPage.scss";
 
 
@@ -34,14 +35,22 @@ const LandingPage: React.FC = (): JSX.Element => {
     };
 
     return (
-        <div className='landing-page-container'>
-            <div className="landing-page-container__main-txt-container">
-                <span className="main-txt">
-                    {mainTxt}
-                </span>
+        <>
+            <div className='landing-page-container'>
+                <div className="landing-page-container__main-txt-container">
+                    <span className="main-txt">
+                        {mainTxt}
+                    </span>
+                    <div className="sign-up-in-container">
+                        <span role="presentation" onClick={onSignupClick} className="join-btn">Sign up</span>
+                        <span role="presentation" onClick={onLoginClick} className="join-btn">Login</span>
+                    </div>
+                </div>
+                <CarouselComp />
             </div>
-            <CarouselComp />
-        </div>
+            {isLoginPopupOpen
+                && <LoginModal isOpen={isLoginPopupOpen} handleClose={() => setIsLoginPopupOpen(false)} onLogin={doLogin} />}
+        </>
     )
 }
 

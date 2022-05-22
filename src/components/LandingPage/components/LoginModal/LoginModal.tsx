@@ -3,9 +3,10 @@ import "./LoginModal.scss";
 import { Dialog } from "@mui/material";
 import classNames from "classnames";
 import { validateEmail } from "../../../../utils/utils";
+import Input from "../../../UiComponents/Input/Input";
 
 interface ILoginModalProps {
-  handleClose: (isClose:boolean) => void,
+  handleClose: (isClose: boolean) => void,
   isOpen: boolean,
   onLogin: (password: string, email: string) => void
 }
@@ -17,11 +18,11 @@ const LoginModal: React.FC<ILoginModalProps> = ({ handleClose, isOpen, onLogin }
     password: ""
   });
   const isBtnDisabled: boolean = !validateEmail(userLoginDetails.email) || !userLoginDetails.password;
-    
+
   const onChange = (name: string, value: any) => {
-    setUserLoginDetails((prev) => ({ ...prev, [name]: value }));   
+    setUserLoginDetails((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const onLoginClick = () => {
     onLogin(userLoginDetails.password, userLoginDetails.email);
   };
@@ -31,7 +32,7 @@ const LoginModal: React.FC<ILoginModalProps> = ({ handleClose, isOpen, onLogin }
       <div className="login-container">
         <span className="title">Join 120</span>
         <div className="input-container">
-          {/* <InputTextField
+          <Input
             isError={!validateEmail(userLoginDetails.email)}
             errorTxt="Incorrect email address"
             onChange={onChange}
@@ -39,16 +40,16 @@ const LoginModal: React.FC<ILoginModalProps> = ({ handleClose, isOpen, onLogin }
             placeholder="Your Email"
             field="email"
             type="text"
-          /> */}
+          />
         </div>
         <div className="input-container">
-          {/* <InputTextField
+          <Input
             onChange={onChange}
             value={userLoginDetails.password}
             placeholder="Enter password"
             field="password"
             type="password"
-          /> */}
+          />
         </div>
         <div
           className={classNames("action-btn-continue", isBtnDisabled && "disabled")}
