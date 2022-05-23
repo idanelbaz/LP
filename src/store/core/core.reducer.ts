@@ -19,6 +19,9 @@ export const CoreReducer = createSlice({
     setIsHeaderMenuOpen(state: CoreInterface, action: PayloadAction<boolean>) {
       state.isHeaderMenuOpen = action.payload;
     },
+    setIsAppLoading(state: CoreInterface, action: PayloadAction<boolean>) {
+      state.isAppLoading = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(coreActions.setCurrentPage, (state: CoreInterface, action) => {
@@ -29,5 +32,7 @@ export const CoreReducer = createSlice({
 
 export const {
   updateCurrentSignupStep,
-  updateAppAlert, setIsHeaderMenuOpen
+  updateAppAlert,
+  setIsHeaderMenuOpen,
+  setIsAppLoading
 } = CoreReducer.actions;

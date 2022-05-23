@@ -25,7 +25,6 @@ interface ILoginModalProps {
 }
 
 const LoginModal: React.FC<ILoginModalProps> = ({ handleClose, isOpen, onLogin }): JSX.Element => {
-
   const [userLoginDetails, setUserLoginDetails] = useState({
     email: "",
     password: ""

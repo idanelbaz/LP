@@ -22,6 +22,13 @@ export class UsersSelector {
     }
   );
 
+  getSelectedUserIdSelector = createSelector(
+    [this.usersReducerSelector],
+    (state: UsersInterface) => {
+      return state.selectedUserId;
+    }
+  );
+
   getIsUserConnected = createSelector(
     [this.currentUserSelector],
     (user: User | undefined) => {

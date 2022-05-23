@@ -1,6 +1,7 @@
 export interface UsersInterface {
   currentUser?: User,
   editedUser: User,
+  selectedUserId: string
 }
 
 export interface User {
@@ -11,7 +12,6 @@ export interface User {
   gender: GenderTypes,
   email: string
   events: Array<string>,
-  register: boolean,
   familyMembers: Array<familyMember>,
   subscriptionType: SubscriptionTypes
 }
@@ -53,3 +53,8 @@ export const userColorDic:Record<string, string> = {
   5: "#190cf1",
   6: "#f10c0c",
 };
+
+export interface UserLoginReq {
+  user: User,
+  token: string 
+}

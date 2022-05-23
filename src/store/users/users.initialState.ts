@@ -9,8 +9,8 @@ export const usersInitState: UsersInterface = {
     name: "",
     _id: "",
     events: [],
-    register: false,
     familyMembers: [],
     subscriptionType: SubscriptionTypes.Regular
-  }
+  },
+  selectedUserId: ""
 };

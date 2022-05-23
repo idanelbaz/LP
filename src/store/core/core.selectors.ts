@@ -29,6 +29,13 @@ export class CoreSelector {
     }
   );
 
+  isAppLoadingSelector = createSelector(
+    [this.coreReducerSelector],
+    (state: CoreInterface) => {
+      return state.isAppLoading;
+    }
+  );
+
   getCurrentSignupStepIndex = createSelector(
     [this.currentSignupStepSelector],
     (signupStep) => signupStepsArray.findIndex((step) => step === signupStep)

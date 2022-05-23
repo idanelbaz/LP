@@ -3,6 +3,7 @@ export interface CoreInterface {
   currentSignupStep: SignupSteps,
   appAlert?: AppAlert,
   isHeaderMenuOpen: boolean,
+  isAppLoading: boolean
 }
 
 export enum Pages {

@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { UsersActionTypes } from "./users.actionTypes";
-import { User } from './users.interface';
+import { User, UserLoginReq } from './users.interface';
 
 export interface LoginUserDetails {
   password: string,
@@ -14,7 +14,7 @@ export class UsersActions {
 
   loginUserReq = createAction<LoginUserDetails>(UsersActionTypes.LOGIN_USER_REQ);
 
-  loginUserRes = createAction<User>(UsersActionTypes.LOGIN_USER_RES);
+  loginUserRes = createAction<UserLoginReq>(UsersActionTypes.LOGIN_USER_RES);
 
 }
 
