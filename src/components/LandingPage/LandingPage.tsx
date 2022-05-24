@@ -10,6 +10,7 @@ import { usersSelector } from '../../store/users/users.selectors';
 import BrokenImg from "../../style/images/broken-image.svg";
 import CarouselComp from "./components/CarouselComp/CarouselComp"
 import LoginModal from "./components/LoginModal/LoginModal";
+import { ReactComponent as SuccessIcon } from '../../style/images/success.svg';
 import "./LandingPage.scss";
 
 
@@ -18,8 +19,14 @@ const LandingPage: React.FC = (): JSX.Element => {
     const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
     const isUserConnected: boolean = useSelector(usersSelector.getIsUserConnected);
     const isAppLoading = useSelector(coreSelector.isAppLoadingSelector);
-    const mainTxt: string = "Inside the body, deep down, lies the soul. No one has seen it yet, but everyone believe it exists";
-    const secondTxt: string = "A personal app, of a person's life, a place to write personal notes, letters for the future, future tools and more";
+    const mainTxt: string = "For Your Everyday Life Points";
+    const secondTxt: string = "Site your big and small Life Points Pass a gift of Life Points to your loved ones Enjoy the creation of memorable Life Points";
+    const moreDetailsTxt = [
+        "Easily find your precious LifePoints",
+        "Capture your family LifePoints for all members in one place",
+        "Create, share and save LifePoint in a simple and fun way",
+    ]
+
 
     const handleImgFailure = (event: any) => {
         event.target.src = BrokenImg;
@@ -43,14 +50,25 @@ const LandingPage: React.FC = (): JSX.Element => {
             <div className='landing-page-container'>
                 <div className="landing-page-container__main-txt-container">
                     <span className="main-txt">
-                        {mainTxt}
+                       {mainTxt}
                     </span>
-                    <div className="sign-up-in-container">
-                        <span role="presentation" onClick={onSignupClick} className="join-btn">Sign up</span>
-                        <span role="presentation" onClick={onLoginClick} className="join-btn">Login</span>
-                    </div>
+                    <span className="second-txt">
+                        {secondTxt}
+                    </span>
+                </div>
+                <div className="landing-page-container__sign-up-in-container">
+                    {/* <span role="presentation" onClick={onSignupClick} className="join-btn">Sign up</span> */}
+                    <span role="presentation" onClick={onLoginClick} className="join-btn">Login</span>
                 </div>
                 <CarouselComp />
+                <div className="landing-page-container__more-details-container">
+                    {moreDetailsTxt.map(detailsTxt => 
+                        <div key={detailsTxt} className="more-details-item">
+                            <SuccessIcon/>
+                            <div className="more-details-item__txt">{detailsTxt}</div>
+                        </div>
+                    )}
+                </div>
             </div>
             {isLoginPopupOpen
                 && <LoginModal isOpen={isLoginPopupOpen} handleClose={() => setIsLoginPopupOpen(false)} onLogin={doLogin} />}
