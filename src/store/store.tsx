@@ -1,9 +1,9 @@
 import { Action, applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createEpicMiddleware } from 'redux-observable';
-import { createBrowserHistory } from 'history';
 import { rootReducer } from './root/root.reducer';
 import { loggerService } from '../logger/logger.service';
+import { createBrowserHistory } from 'history';
 
 export const epicMiddleware = createEpicMiddleware();
 export const history = createBrowserHistory();

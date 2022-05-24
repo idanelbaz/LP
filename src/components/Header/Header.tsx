@@ -12,7 +12,7 @@ const Header: React.FC = (): JSX.Element => {
     const dispatch = useDispatch();
     const currentPage: Pages = useSelector(coreSelector.currentPageSelector);
     const isUserConnected: boolean = useSelector(usersSelector.getIsUserConnected);
-
+    
     const onLogoClick = () => {
         dispatch(coreActions.setCurrentPage(Pages.Homepage));
     };

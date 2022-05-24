@@ -13,9 +13,9 @@ import './App.scss';
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route path={Pages.Homepage} component={LandingPage} exact />
-      <Route path={Pages.Signup} component={SignUpPage} exact />
-      <Route path={Pages.LandingPage} component={Homepage} exact />
+      <Route path={Pages.Homepage} component={Homepage}  />
+      <Route path={Pages.Signup} component={SignUpPage}  />
+      <Route path={Pages.LandingPage} component={LandingPage}  />
       <Redirect to={Pages.Homepage} />
     </Switch>
   );

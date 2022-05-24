@@ -8,7 +8,7 @@ import "./Homepage.scss";
 
 const Homepage: React.FC = (): JSX.Element => {
     const dispatch = useDispatch();
-    const history = useHistory()
+    const history = useHistory();
     const isUserConnected: boolean = useSelector(usersSelector.getIsUserConnected);
 
     useEffect(()=> {

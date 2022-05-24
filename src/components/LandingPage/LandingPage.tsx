@@ -21,10 +21,6 @@ const LandingPage: React.FC = (): JSX.Element => {
     const mainTxt: string = "Inside the body, deep down, lies the soul. No one has seen it yet, but everyone believe it exists";
     const secondTxt: string = "A personal app, of a person's life, a place to write personal notes, letters for the future, future tools and more";
 
-    console.log(isUserConnected, 'isUserConnected');
-    console.log(isAppLoading, 'isAppLoading');
-    
-
     const handleImgFailure = (event: any) => {
         event.target.src = BrokenImg;
     };
