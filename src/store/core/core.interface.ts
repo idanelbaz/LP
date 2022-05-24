@@ -9,7 +9,8 @@ export interface CoreInterface {
 export enum Pages {
   LandingPage = "/",
   Signup = "/signup",
-  Homepage = "/homepage"
+  Homepage = "/homepage",
+  NotFound = "/not-found"
 }
 
 export enum InnerMainPages {
