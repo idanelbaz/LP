@@ -25,31 +25,5 @@
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "shortcuts": [
-    {
-      "name": "Timeline",
-      "short_name": "Timeline",
-      "url": "/homepage",
-      "icons": [
-        {
-          "src": "logo192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Signup",
-      "short_name": "Signup",
-      "url": "/sign-up",
-      "icons": [
-        {
-          "src": "logo192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    }
-  ]
+  "background_color": "#ffffff"
 }
