@@ -1,5 +1,6 @@
 {
   "name": "lp-new",
+  "homepage": "https://idanelbaz.github.io/LP/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "@types/workbox-core": "^4.3.1",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
+    "gh-pages": "^4.0.0",
     "is-mobile": "^3.1.1",
     "moment": "^2.29.3",
     "react": "^18.1.0",
@@ -55,6 +57,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
