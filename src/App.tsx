@@ -10,6 +10,7 @@ import Homepage from './components/Homepage/Homepage';
 import './style/common.scss';
 import './App.scss';
 
+
 const Routes: React.FC = () => {
   return (
     <Switch>
