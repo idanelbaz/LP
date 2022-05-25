@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700px" height="400px" viewBox="0 0 700 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>broken-image-profile</title>
+    <g id="broken-image-profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="broken-image">
+            <rect id="tadmit" x="0" y="0" width="700" height="400"></rect>
+            <g id="broken_Image" transform="translate(262.000000, 109.000000)" fill-rule="nonzero">
+                <rect id="Rectangle" fill="#E3E5E7" x="0" y="0" width="176" height="181" rx="15.73"></rect>
+                <circle id="Oval" fill="#F8FAFD" cx="136" cy="42" r="18"></circle>
+                <path d="M0,113.73 L37.81,69.49 C38.8043449,68.3563744 40.2266993,67.6891891 41.7340941,67.649321 C43.241489,67.6094529 44.6971221,68.2005201 45.75,69.28 L82.59,107.8 C86.0261179,111.296601 91.5146602,111.723393 95.45,108.8 L129.19,85.24 C131.034829,83.8784611 133.536055,83.8224336 135.44,85.1 L176,114 L176,169.3 C175.863353,175.918375 170.429547,181.196165 163.81,181.14 L12.48,182.86 C9.24678386,182.962194 6.10726706,181.765512 3.76239188,179.537129 C1.4175167,177.308746 0.062547271,174.234226 0,171 L0,113.73 Z" id="Path" fill="#B4BFC6"></path>
+                <polygon id="Path" fill="#FFFFFF" points="74 0 88 41.65 71 64.28 88 91.45 75 118.61 88 134 83 118.61 101 87.82 86 61.57 101 36.22 112 0"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

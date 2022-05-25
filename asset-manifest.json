@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/LP/static/css/main.c9ecf683.css",
+    "main.js": "/LP/static/js/main.c46a5095.js",
+    "static/js/787.75e86ace.chunk.js": "/LP/static/js/787.75e86ace.chunk.js",
+    "static/media/image6.png": "/LP/static/media/image6.b76db09758938ad6583a.png",
+    "static/media/image5.jpg": "/LP/static/media/image5.6e79759f2e2df95ce2d1.jpg",
+    "static/media/Birthday.jpg": "/LP/static/media/Birthday.8eb15cfa0338ad27f1f2.jpg",
+    "static/media/mainImg.png": "/LP/static/media/mainImg.e25b9a5eb6cccd347639.png",
+    "static/media/image7.jpg": "/LP/static/media/image7.6b062b3b2870f412dadc.jpg",
+    "static/media/image1.jpg": "/LP/static/media/image1.e312ea28fb6b8aa2a6cd.jpg",
+    "static/media/Document.jpg": "/LP/static/media/Document.357c503e9e8729a91dc4.jpg",
+    "static/media/image2.jpg": "/LP/static/media/image2.76b57d8cf373f6930c4b.jpg",
+    "static/media/image4.png": "/LP/static/media/image4.1ab29b8dd7a11fc7ced4.png",
+    "static/media/Marriage.jpg": "/LP/static/media/Marriage.f144470dd0873992f7ca.jpg",
+    "service-worker.js": "/LP/service-worker.js",
+    "static/media/Anniversary.jpg": "/LP/static/media/Anniversary.ee39ff50d6b59366e89a.jpg",
+    "static/media/image3.jpg": "/LP/static/media/image3.4b752eb1d9371b126439.jpg",
+    "static/media/Other.jpg": "/LP/static/media/Other.23feed4b76c437a661f6.jpg",
+    "static/media/revicons.eot": "/LP/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/LP/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/LP/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/broken-image.svg": "/LP/static/media/broken-image.39fcae51bed88d88f1eedfbcc7783137.svg",
+    "static/media/star-settings.svg": "/LP/static/media/star-settings.fb287237e160af2fa2ccca230fb8700b.svg",
+    "static/media/ok.svg": "/LP/static/media/ok.3c8e7cf4a50916ada66e68f5e903d330.svg",
+    "static/media/success.svg": "/LP/static/media/success.fc792e1d96994772ebe4fbd1848a2cd6.svg",
+    "index.html": "/LP/index.html",
+    "static/media/info-icon.svg": "/LP/static/media/info-icon.7fa54d04faec76ce22fc127217b67b19.svg",
+    "main.c9ecf683.css.map": "/LP/static/css/main.c9ecf683.css.map",
+    "main.c46a5095.js.map": "/LP/static/js/main.c46a5095.js.map",
+    "787.75e86ace.chunk.js.map": "/LP/static/js/787.75e86ace.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9ecf683.css",
+    "static/js/main.c46a5095.js"
+  ]
+}
