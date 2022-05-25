@@ -77,4 +77,12 @@ self.addEventListener('message', (event) => {
   }
 });
 
+self.addEventListener("install", e => {
+  e.waitUntil(
+    (async () => {
+      self.skipWaiting();
+    })()
+  );
+});
+
 // Any other custom service worker logic can go here.
