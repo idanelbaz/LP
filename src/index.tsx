@@ -1,12 +1,12 @@
 import React from 'react';
 import { Provider } from "react-redux";
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
+import { Router, HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { epicMiddleware, store } from './store/store';
+import { epicMiddleware, history, store } from './store/store';
 import { rootEffects } from './store/root/root.effects';
 import { configService } from './store/config/config.service';
 import { setConfigAction } from './store/config/config.reducer';
@@ -17,9 +17,9 @@ const root = ReactDOM.createRoot(container);
 
 const initRender = (setStore: any) => root.render(
   <Provider store={setStore}>
-    <HashRouter>
+    <Router  history={history}>
       <App />
-    </HashRouter>
+    </Router>
   </Provider>
 );
 
