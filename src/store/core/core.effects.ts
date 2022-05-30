@@ -4,6 +4,7 @@ import { catchError, delay, EMPTY, filter, map, merge, mergeMap, Observable, of,
 import { Action } from '@reduxjs/toolkit';
 import { history } from '../store';
 import { Pages } from './core.interface';
+import { setIsHeaderMenuOpen } from "./core.reducer";
 
 export class CoreEffects {
   constructor(private effectCoreActions: CoreActions, private effectCoreSelector: CoreSelector) {
@@ -16,7 +17,7 @@ export class CoreEffects {
       pluck("payload"),
       mergeMap((selectedPage: Pages) => {
         history.push(selectedPage)
-        return EMPTY;
+        return [setIsHeaderMenuOpen(false)];
       }),
     );
   }

@@ -5,6 +5,8 @@ import { editedUserInit } from '../../store/users/users.initialState';
 import { SignupSteps, signupStepsArray } from '../../store/core/core.interface';
 import { LinearProgress } from '@mui/material';
 import "./SignUpPage.scss";
+import { usersActions } from '../../store/users/users.actions';
+import classNames from 'classnames';
 
 const stepLocation = (currentStep: SignupSteps): number => {
     const stepIdx = Object.keys(SignupSteps).findIndex((step) => currentStep === step);
@@ -18,7 +20,7 @@ const stepTitles = {
     [SignupSteps.CredentialsInfo]: "Credentials Info",
     [SignupSteps.FamilyMembers]: "Family members",
     [SignupSteps.PersonalDetails]: "Personal Details",
-  };
+};
 
 
 const SignUpPage: React.FC = (): JSX.Element => {
@@ -30,6 +32,29 @@ const SignUpPage: React.FC = (): JSX.Element => {
     const stepsCount = Object.keys(SignupSteps).length;
     const stepperLocation: number = (100 * (getStepLocationNum + 1)) / stepsCount;
     const stepTitle: string = stepTitles[currentSignupStep];
+    const isFirstStep: boolean = currentSignupStepIndex === 0;
+    const isLastStep: boolean = currentSignupStepIndex === (signupStepsArray.length - 1);
+    const isDisabledForward: boolean = false
+
+    const onChange = (name: string, value: any) => {
+        setEditedUser(prev => ({ ...prev, [name]: value }));
+    };
+
+    const moveForward = () => {
+        if (signupStepsArray[currentSignupStepIndex + 1]) {
+            setCurrentSignupStep(signupStepsArray[currentSignupStepIndex + 1])
+        }
+    };
+
+    const moveBack = () => {
+        if (currentSignupStepIndex - 1 >= 0) {
+            setCurrentSignupStep(signupStepsArray[currentSignupStepIndex - 1]);
+        }
+    };
+
+    const submitUser = () => {
+        dispatch(usersActions.submitUserReq(editedUser));
+    };
 
 
     return (
@@ -40,6 +65,37 @@ const SignUpPage: React.FC = (): JSX.Element => {
                     <LinearProgress variant="determinate" value={stepperLocation} className="linear-stepper" />
                     <span className="title">{stepTitle}</span>
                 </div>
+            </div>
+            <div className="actions-btns-container">
+                {!isLastStep
+                    && (
+                        <div
+                            style={{ marginLeft: !isFirstStep ? "0.5rem" : "0" }}
+                            className={classNames("action-btn-continue", isDisabledForward && "disabled")}
+                            onClick={moveForward}
+                            role="presentation"
+                        >Continue
+                        </div>
+                    )}
+                {isLastStep
+                    && (
+                        <div
+                            style={{ marginLeft: "0.5rem" }}
+                            className={classNames("action-btn-continue", isDisabledForward && "disabled")}
+                            role="presentation"
+                            onClick={submitUser}
+                        >Done
+                        </div>
+                    )}
+                {!isFirstStep
+                    && (
+                        <div
+                            onClick={moveBack}
+                            className="action-btn-back"
+                            role="presentation"
+                        >Back
+                        </div>
+                    )}
             </div>
         </div>
     )
