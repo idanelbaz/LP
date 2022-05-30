@@ -1,6 +1,5 @@
 export interface CoreInterface {
   currentPage: Pages,
-  currentSignupStep: SignupSteps,
   appAlert?: AppAlert,
   isHeaderMenuOpen: boolean,
   isAppLoading: boolean
@@ -20,12 +19,11 @@ export enum InnerMainPages {
 }
 
 export enum SignupSteps {
-  Name = "Name",
-  Birthday = "Birthday",
-  Gender = "Gender",
-  Marriage = "Marriage",
+  PersonalDetails = "PersonalDetails",
+  // Birthday = "Birthday",
+  // Gender = "Gender",
   FamilyMembers = "FamilyMembers",
-  Email = "Email"
+  CredentialsInfo = "CredentialsInfo"
 }
 
 export const signupStepsArray = Object.values(SignupSteps);

@@ -8,13 +8,6 @@ import { usersReducerKey } from './users.reducer';
 export class UsersSelector {
   usersReducerSelector: Selector<RootStateInterface, UsersInterface> = (state: RootStateInterface): UsersInterface => state[usersReducerKey];
 
-  editedUserSelector = createSelector(
-    [this.usersReducerSelector],
-    (state: UsersInterface) => {
-      return state.editedUser;
-    }
-  );
-
   currentUserSelector = createSelector(
     [this.usersReducerSelector],
     (state: UsersInterface) => {

@@ -2,7 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 import { createSelector, Selector } from 'reselect';
 import { RootStateInterface } from '../root/rootState.interface';
-import { CoreInterface, signupStepsArray } from "./core.interface";
+import { CoreInterface } from "./core.interface";
 import { coreReducerKey } from './core.reducer';
 
 export class CoreSelector {
@@ -12,13 +12,6 @@ export class CoreSelector {
     [this.coreReducerSelector],
     (state: CoreInterface) => {
       return state.currentPage;
-    }
-  );
-
-  currentSignupStepSelector = createSelector(
-    [this.coreReducerSelector],
-    (state: CoreInterface) => {
-      return state.currentSignupStep;
     }
   );
 
@@ -35,11 +28,6 @@ export class CoreSelector {
       return state.isAppLoading;
     }
   );
-
-  getCurrentSignupStepIndex = createSelector(
-    [this.currentSignupStepSelector],
-    (signupStep) => signupStepsArray.findIndex((step) => step === signupStep)
-  ); 
 }
 
 export const coreSelector = new CoreSelector();

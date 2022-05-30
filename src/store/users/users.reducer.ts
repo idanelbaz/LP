@@ -10,9 +10,6 @@ export const UsersReducer = createSlice({
   name: usersReducerKey,
   initialState: usersInitState,
   reducers: {
-    updateEditedUser(state: UsersInterface, action: PayloadAction<Partial<User>>) {
-      state.editedUser = { ...state.editedUser, ...action.payload };
-    },
     updateCurrentUser(state: UsersInterface, action: PayloadAction<User>) {
       state.currentUser = action.payload;
     },
@@ -22,4 +19,4 @@ export const UsersReducer = createSlice({
   }
 });
 
-export const { updateEditedUser, updateCurrentUser, updateSelectedUser } = UsersReducer.actions;
+export const { updateCurrentUser, updateSelectedUser } = UsersReducer.actions;

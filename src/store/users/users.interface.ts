@@ -1,6 +1,5 @@
 export interface UsersInterface {
   currentUser?: User,
-  editedUser: User,
   selectedUserId: string
 }
 

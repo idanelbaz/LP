@@ -4,4 +4,92 @@
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
+
+
+    .sign-up-page-inner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+  
+        .step-title {
+          font-size: 2rem;
+          font-weight: 600;
+          margin-bottom: 4rem;
+        }
+  
+        .input-container{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          overflow-y: auto;
+          max-height: 20rem;
+          padding-top: 1rem;
+          margin-top: 7rem;
+          align-items: center;
+        }
+  
+        .stepper-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+  
+          .linear-stepper {
+            width: 100%;
+            margin-bottom: 0.5rem;
+          }
+  
+          .title {
+            width: 100%;
+          }
+  
+          .sub-title {
+            width: 100%;
+            margin-bottom: 0.5rem;
+          }
+        }
+  
+        .number-of-children-title{
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 2rem;
+          margin-top: 2rem;
+        }
+    }
+  
+      .actions-btns-container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+  
+        > * {
+          width: 7rem;
+          height: 2rem;
+          display: flex;
+          border-radius: 0.25rem;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all .2s ease;
+          color: #ffffff;
+          line-height: 1.2;
+  
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+  
+        .action-btn-continue {
+          background-color: var(--main-color-green);
+        }
+  
+        .action-btn-back {
+          background-color: var(--main-color-blue);
+          margin-right: 0.5rem;
+        }
+      }
 }
