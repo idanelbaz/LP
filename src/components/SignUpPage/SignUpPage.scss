@@ -20,7 +20,7 @@
           margin-bottom: 4rem;
         }
   
-        .input-container{
+        .input-wrapper{
           width: 100%;
           display: flex;
           justify-content: center;
@@ -30,6 +30,15 @@
           padding-top: 1rem;
           margin-top: 7rem;
           align-items: center;
+
+          > * {
+            width: 100%;
+          }
+        }
+
+      
+        .input-container{
+          width: 100%;
         }
   
         .stepper-container {

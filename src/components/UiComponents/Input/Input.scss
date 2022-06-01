@@ -16,32 +16,37 @@
         &__label {
           position: absolute;
           left: 0;
-          top: -4px;
+          top: 4px;
           padding: calc(.5rem * 0.75) calc(.5rem * .5);
           margin: calc(.5rem * 0.75 + 3px) calc(.5rem * .5);
           white-space: nowrap;
           transform: translate(0, 0);
           transform-origin: 0 0;
           transition: transform 120ms ease-in;
-          font-weight: bold;
           line-height: 1.2;
           background: white;
+          color: rgba(0,0,0);
         }
         &__field {
           box-sizing: border-box;
           display: block;
           width: 100%;
-          border: 1px solid currentColor;
+          border: 1px solid rgba(0,0,0, 0.3);
           padding: calc(.5rem * 1.5) .5rem;
           color: currentColor;
           background: transparent;
           border-radius: 4px;
+          height: 3.5rem;
+          font-size: 1.5rem;
           
           &:focus,
           &:not(:placeholder-shown) {
             & + .input__label {
-              transform: translate(.25rem, -65%) scale(.8);
+              transform: translate(.25rem, -85%) scale(.8);
+              color: #1976d2;
             }
+            border-width: 2px;
+            border-color: #1976d2;
           }
         }
     } 

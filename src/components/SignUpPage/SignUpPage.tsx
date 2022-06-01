@@ -4,9 +4,12 @@ import { User } from '../../store/users/users.interface';
 import { editedUserInit } from '../../store/users/users.initialState';
 import { SignupSteps, signupStepsArray } from '../../store/core/core.interface';
 import { LinearProgress } from '@mui/material';
-import "./SignUpPage.scss";
 import { usersActions } from '../../store/users/users.actions';
 import classNames from 'classnames';
+import PersonalDetails from './components/PersonalDetails/PersonalDetails';
+import "./SignUpPage.scss";
+import { validateNickname } from '../../utils/utils';
+
 
 const stepLocation = (currentStep: SignupSteps): number => {
     const stepIdx = Object.keys(SignupSteps).findIndex((step) => currentStep === step);
@@ -34,7 +37,17 @@ const SignUpPage: React.FC = (): JSX.Element => {
     const stepTitle: string = stepTitles[currentSignupStep];
     const isFirstStep: boolean = currentSignupStepIndex === 0;
     const isLastStep: boolean = currentSignupStepIndex === (signupStepsArray.length - 1);
-    const isDisabledForward: boolean = false
+    const isNicknameValid = validateNickname(editedUser.name);
+    const isBirthdateValid = !!editedUser.birthdate;
+
+    const isDisabledForward = () => {
+        switch (currentSignupStep) {
+            case SignupSteps.PersonalDetails:
+                return !isNicknameValid || !isBirthdateValid;
+            default:
+                return true;
+        };
+    };
 
     const onChange = (name: string, value: any) => {
         setEditedUser(prev => ({ ...prev, [name]: value }));
@@ -56,6 +69,19 @@ const SignUpPage: React.FC = (): JSX.Element => {
         dispatch(usersActions.submitUserReq(editedUser));
     };
 
+    const renderElement = () => {
+        switch (currentSignupStep) {
+            case SignupSteps.PersonalDetails:
+                return (
+                    <PersonalDetails
+                        editedName={editedUser.name}
+                        editredBirthday={editedUser.birthdate}
+                        onChange={onChange}
+                    />
+                )
+        }
+    }
+
 
     return (
         <div className='sign-up-page-container'>
@@ -65,13 +91,16 @@ const SignUpPage: React.FC = (): JSX.Element => {
                     <LinearProgress variant="determinate" value={stepperLocation} className="linear-stepper" />
                     <span className="title">{stepTitle}</span>
                 </div>
+                <div className="input-wrapper">
+                    {renderElement()}
+                </div>
             </div>
             <div className="actions-btns-container">
                 {!isLastStep
                     && (
                         <div
                             style={{ marginLeft: !isFirstStep ? "0.5rem" : "0" }}
-                            className={classNames("action-btn-continue", isDisabledForward && "disabled")}
+                            className={classNames("action-btn-continue", isDisabledForward() && "disabled")}
                             onClick={moveForward}
                             role="presentation"
                         >Continue
@@ -81,7 +110,7 @@ const SignUpPage: React.FC = (): JSX.Element => {
                     && (
                         <div
                             style={{ marginLeft: "0.5rem" }}
-                            className={classNames("action-btn-continue", isDisabledForward && "disabled")}
+                            className={classNames("action-btn-continue", isDisabledForward() && "disabled")}
                             role="presentation"
                             onClick={submitUser}
                         >Done

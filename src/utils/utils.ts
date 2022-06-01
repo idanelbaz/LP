@@ -24,3 +24,7 @@ export const validatePassword = (password: string): boolean => {
 export const validateEmail = (email: string): boolean => {
   return !!validator.isEmail(email);
 };
+
+export const validateNickname = (nickname: string): boolean => {
+  return !!nickname.length;
+};
