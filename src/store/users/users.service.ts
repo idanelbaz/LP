@@ -24,7 +24,8 @@ export class UsersService {
         birthdate: new Date(),
         events: [],
         subscriptionType: SubscriptionTypes.Regular,
-        name: "Logined user"
+        name: "Logined user",
+        avatarUrl: ''
       },
       token: "dfdshjkffs"
     });

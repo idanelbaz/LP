@@ -1,11 +1,12 @@
-import { GenderTypes, SubscriptionTypes, UsersInterface } from './users.interface';
+import { GenderTypes, SubscriptionTypes, User, UsersInterface } from './users.interface';
+import ProfileSvg from "../../style/images/profile.svg";
 
 export const usersInitState: UsersInterface = { 
   currentUser: undefined,
   selectedUserId: ""
 };
 
-export const editedUserInit = {
+export const editedUserInit: User = {
   birthdate: new Date(),
   email: "",
   gender: GenderTypes.Female,
@@ -13,5 +14,6 @@ export const editedUserInit = {
   _id: "",
   events: [],
   familyMembers: [],
-  subscriptionType: SubscriptionTypes.Regular
+  subscriptionType: SubscriptionTypes.Regular,
+  avatarUrl: ProfileSvg
 }

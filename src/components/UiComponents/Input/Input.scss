@@ -43,10 +43,10 @@
           &:not(:placeholder-shown) {
             & + .input__label {
               transform: translate(.25rem, -85%) scale(.8);
-              color: #1976d2;
+              color: var(--inner-btns-blue);
             }
             border-width: 2px;
-            border-color: #1976d2;
+            border-color: var(--inner-btns-blue);
           }
         }
     } 

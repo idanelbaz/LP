@@ -77,6 +77,7 @@ const SignUpPage: React.FC = (): JSX.Element => {
                         editedName={editedUser.name}
                         editredBirthday={editedUser.birthdate}
                         onChange={onChange}
+                        editedAvatarUrl={editedUser.avatarUrl}
                     />
                 )
         }

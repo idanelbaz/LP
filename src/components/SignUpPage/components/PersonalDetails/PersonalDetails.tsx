@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import DateInput from "../../../UiComponents/DateInput/DateInput";
 import Input from "../../../UiComponents/Input/Input";
+import AvatarPicker from "../AvatarPicker/AvatarPicker";
 
 interface PersonalDetailsProps {
     editedName: string,
     editredBirthday: Date,
-    onChange: (name: string, value: any) => void
+    onChange: (name: string, value: any) => void,
+    editedAvatarUrl: string
 }
 
 
 const PersonalDetails: React.FC<PersonalDetailsProps> = ({
     editedName,
     editredBirthday,
+    editedAvatarUrl,
     onChange
 }): JSX.Element => {
+    const [isAvatarPickerOpen, setIsAvatarPickerOpen] = useState(false);
+
+    const handleCloseModal = () => {
+        setIsAvatarPickerOpen(false);
+    }
+
+    const handleOpenModal = () => {
+        setIsAvatarPickerOpen(true);
+    }
+
+    const onSelectAvatar = (avatarUrl: string) => {
+        onChange("avatarUrl", avatarUrl);
+        handleCloseModal();
+    }
 
     return (
         <>
@@ -32,6 +49,20 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({
                 value={editredBirthday}
                 onChange={onChange}
                 label="Birth date"
+            />
+            <div className={"choose-avatar-wrapper"}>
+                <div onClick={handleOpenModal} className="choose-avatar-btn">
+                    Choose Avatar
+                </div>
+                <div className={"user-avatar-wrapper"}>
+                    <img src={editedAvatarUrl} className="user-avatar-img" alt="" />
+                </div>
+            </div>
+            <AvatarPicker
+                handleClose={handleCloseModal}
+                isOpen={isAvatarPickerOpen}
+                onSelectAvatar={onSelectAvatar}
+                selectedAvatarUrl={editedAvatarUrl}
             />
         </>
     );

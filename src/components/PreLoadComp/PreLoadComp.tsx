@@ -48,9 +48,7 @@ import Smile2ProfileSvg from "../../style/images/profileIcons/smile2.svg";
 import Smile3ProfileSvg from "../../style/images/profileIcons/smile3.svg";
 import Smile4ProfileSvg from "../../style/images/profileIcons/smile4.svg";
 import SunProfileSvg from "../../style/images/profileIcons/sun.svg";
-
-
-
+import ButterflyProfileSvg from "../../style/images/profileIcons/butterfly.svg";
 import { preloadImages } from "../../utils/utils";
 import "./PreLoad.scss";
 
@@ -105,7 +103,8 @@ const ImagesLoaderComp: React.FC = () => {
       DocumentIcon,
       MarriageIcon,
       OtherIcon,
-      InfoIcon
+      InfoIcon,
+      ButterflyProfileSvg
     ];
 
     preloadImages(appImages);

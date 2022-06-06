@@ -12,7 +12,8 @@ export interface User {
   email: string
   events: Array<string>,
   familyMembers: Array<familyMember>,
-  subscriptionType: SubscriptionTypes
+  subscriptionType: SubscriptionTypes,
+  avatarUrl: string
 }
 
 export enum SubscriptionTypes {
