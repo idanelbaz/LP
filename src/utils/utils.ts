@@ -28,3 +28,7 @@ export const validateEmail = (email: string): boolean => {
 export const validateNickname = (nickname: string): boolean => {
   return !!nickname.length;
 };
+
+export const importAll = (r: any) => {
+  return r.keys().map(r);
+}

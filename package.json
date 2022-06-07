@@ -83,6 +83,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "@types/validator": "^13.7.2"
+    "@types/validator": "^13.7.2",
+    "@types/webpack-env": "^1.17.0"
   }
 }
