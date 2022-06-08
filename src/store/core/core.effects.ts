@@ -4,7 +4,10 @@ import { catchError, delay, EMPTY, filter, map, merge, mergeMap, Observable, of,
 import { Action } from '@reduxjs/toolkit';
 import { history } from '../store';
 import { Pages } from './core.interface';
-import { setIsHeaderMenuOpen } from "./core.reducer";
+import { setIsAppLoading, setIsHeaderMenuOpen } from "./core.reducer";
+import { usersActions } from "../users/users.actions";
+import { ofType } from "redux-observable";
+import { UsersActionTypes } from "../users/users.actionTypes";
 
 export class CoreEffects {
   constructor(private effectCoreActions: CoreActions, private effectCoreSelector: CoreSelector) {
@@ -22,8 +25,16 @@ export class CoreEffects {
     );
   }
 
+  private onLoadingApp(action$: Observable<Action>): Observable<Action> {
+    return action$.pipe(
+      ofType(UsersActionTypes.SUBMIT_USER_REQ, UsersActionTypes.LOGIN_USER_REQ),
+      map(() => setIsAppLoading(true)),
+    );
+  }
+
   public allEffects: Array<any> = [
     this.onSetCurrentPage.bind(this),
+    this.onLoadingApp.bind(this)
   ];
 }
 

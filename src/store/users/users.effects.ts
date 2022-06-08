@@ -24,7 +24,7 @@ export class UsersEffects {
         ? updateAppAlert({ text: "Cannot login user", type: AlertTypes.error })
         : this.effectUsersActions.loginUserRes(registeredUserDetails))),
       // TODO: Remove on real server res
-      delay(1200)
+      delay(1500)
     );
   }
 
@@ -50,14 +50,7 @@ export class UsersEffects {
         ? updateAppAlert({ text: "Cannot add user", type: AlertTypes.error })
         : this.effectUsersActions.submitUserRes(registeredUser))),
       // TODO: Remove on real server res
-      delay(1200)
-    );
-  }
-
-  private onLoadingApp(action$: Observable<Action>): Observable<Action> {
-    return action$.pipe(
-      filter(this.effectUsersActions.submitUserReq.match || this.effectUsersActions.loginUserReq.match),
-      map(() => setIsAppLoading(true)),
+      delay(1500)
     );
   }
 
@@ -77,7 +70,6 @@ export class UsersEffects {
     this.onLoginUserRes.bind(this),
     this.onSubmitUserReq.bind(this),
     this.onSubmitUserRes.bind(this),
-    this.onLoadingApp.bind(this)
   ];
 }
 

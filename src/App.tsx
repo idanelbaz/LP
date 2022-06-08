@@ -7,39 +7,40 @@ import SideMenu from './components/SideMenu/SideMenu';
 import { Pages } from './store/core/core.interface';
 import SignUpPage from './components/SignUpPage/SignUpPage';
 import Homepage from './components/Homepage/Homepage';
+import { useSelector } from 'react-redux';
+import { coreSelector } from './store/core/core.selectors';
+import classNames from 'classnames';
+import AppLoader from './components/AppLoader/AppLoader';
 import './style/common.scss';
 import './App.scss';
+
 
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route path={Pages.Homepage} component={Homepage}  />
-      <Route path={Pages.Signup} component={SignUpPage}  />
-      <Route path={Pages.LandingPage} component={LandingPage}  />
+      <Route path={Pages.Homepage} component={Homepage} />
+      <Route path={Pages.Signup} component={SignUpPage} />
+      <Route path={Pages.LandingPage} component={LandingPage} />
       <Redirect to={Pages.Homepage} />
     </Switch>
   );
 };
 
-function App() {  
+function App() {
+
+  const isLoading = useSelector(coreSelector.isAppLoadingSelector);
   return (
-    <div className="App">
-      <ImagesLoaderComp />
-      <Header />
-      <SideMenu />
-      <Routes />
-      {/* {isLoading && (
-          <CircularProgress
-            size={70}
-            sx={{
-              color: 'green',
-              position: 'absolute',
-              top: '38%',
-              left: '38%',
-            }}
-          />
-        )} */}
-    </div>
+    <>
+      <div className={classNames("App", isLoading && "disabled")}>
+        <ImagesLoaderComp />
+        <Header />
+        <SideMenu />
+        <Routes />
+      </div>
+      {isLoading && (
+        <AppLoader />
+      )}
+    </>
   );
 }
 
