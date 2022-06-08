@@ -91,6 +91,10 @@ const SignUpPage: React.FC = (): JSX.Element => {
                         value={editedUser.familyMembers}
                     />
                 )
+            case SignupSteps.CredentialsInfo:
+                return (
+                    <div></div>
+                )
         }
     }
 
