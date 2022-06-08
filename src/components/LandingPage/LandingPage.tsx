@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { coreActions } from '../../store/core/core.actions';
@@ -11,10 +11,12 @@ import CarouselComp from "./components/CarouselComp/CarouselComp"
 import LoginModal from "./components/LoginModal/LoginModal";
 import { ReactComponent as SuccessIcon } from '../../style/images/success.svg';
 import "./LandingPage.scss";
+import { useHistory } from 'react-router';
 
 
 const LandingPage: React.FC = (): JSX.Element => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
     const isUserConnected: boolean = useSelector(usersSelector.getIsUserConnected);
     const isAppLoading = useSelector(coreSelector.isAppLoadingSelector);
@@ -25,6 +27,12 @@ const LandingPage: React.FC = (): JSX.Element => {
         "Capture your family LifePoints for all members in one place",
         "Create, share and save LifePoint in a simple and fun way",
     ]
+
+    useEffect(()=> {
+        if (isUserConnected) {
+            history.push(Pages.Homepage) 
+        }
+    }, [history, isUserConnected])
 
 
     const handleImgFailure = (event: any) => {

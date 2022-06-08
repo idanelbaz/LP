@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LinearProgress } from '@mui/material';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { SignupSteps, signupStepsArray } from '../../store/core/core.interface';
+import { Pages, SignupSteps, signupStepsArray } from '../../store/core/core.interface';
 import { usersActions } from '../../store/users/users.actions';
 import { editedUserInit } from '../../store/users/users.initialState';
 import { User } from '../../store/users/users.interface';
@@ -11,6 +11,9 @@ import FamilyMembers from './components/FamilyMembers/FamilyMembers';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
 import CredentialsInfo from './components/CredentialsInfo/CredentialsInfo';
 import './SignUpPage.scss';
+import { useSelector } from 'react-redux';
+import { usersSelector } from '../../store/users/users.selectors';
+import { useHistory } from 'react-router';
 
 
 const stepLocation = (currentStep: SignupSteps): number => {
@@ -30,6 +33,8 @@ const stepTitles = {
 
 const SignUpPage: React.FC = (): JSX.Element => {
     const dispatch = useDispatch();
+    const history = useHistory();
+    const isUserConnected: boolean = useSelector(usersSelector.getIsUserConnected);
     const [editedUser, setEditedUser] = useState<User>({ ...editedUserInit });
     const [currentSignupStep, setCurrentSignupStep] = useState<SignupSteps>(SignupSteps.PersonalDetails);
     const currentSignupStepIndex = signupStepsArray.findIndex((step) => step === currentSignupStep)
@@ -41,6 +46,12 @@ const SignUpPage: React.FC = (): JSX.Element => {
     const isLastStep: boolean = currentSignupStepIndex === (signupStepsArray.length - 1);
     const isNicknameValid = validateNickname(editedUser.name);
     const isBirthdateValid = !!editedUser.birthdate;
+
+    useEffect(()=> {
+        if (isUserConnected) {
+            history.push(Pages.Homepage) 
+        }
+    }, [history, isUserConnected])
 
     const isDisabledForward = () => {
         switch (currentSignupStep) {
