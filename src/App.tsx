@@ -10,7 +10,6 @@ import Homepage from './components/Homepage/Homepage';
 import './style/common.scss';
 import './App.scss';
 
-
 const Routes: React.FC = () => {
   return (
     <Switch>
@@ -22,7 +21,7 @@ const Routes: React.FC = () => {
   );
 };
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <ImagesLoaderComp />

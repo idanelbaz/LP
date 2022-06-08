@@ -7,8 +7,10 @@ import { LoginUserDetails } from "./users.actions";
 export class UsersService {
 
   submitUser = (user: User): Promise<User> => {
+    const signedUser = { ...user }
+    delete signedUser.password;
     return Promise.resolve({
-      ...user,
+      ...signedUser,
       _id: uuid(),
       register: true
     });

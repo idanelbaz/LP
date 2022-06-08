@@ -6,9 +6,10 @@ import { SignupSteps, signupStepsArray } from '../../store/core/core.interface';
 import { usersActions } from '../../store/users/users.actions';
 import { editedUserInit } from '../../store/users/users.initialState';
 import { User } from '../../store/users/users.interface';
-import { validateNickname } from '../../utils/utils';
+import { validateEmail, validateNickname, validatePassword } from '../../utils/utils';
 import FamilyMembers from './components/FamilyMembers/FamilyMembers';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
+import CredentialsInfo from './components/CredentialsInfo/CredentialsInfo';
 import './SignUpPage.scss';
 
 
@@ -47,6 +48,10 @@ const SignUpPage: React.FC = (): JSX.Element => {
                 return !isNicknameValid || !isBirthdateValid;
             case SignupSteps.FamilyMembers:
                 return false;
+            case SignupSteps.CredentialsInfo:
+                const isPasswordValid: boolean = validatePassword(editedUser.password || "");
+                const isEmailValid: boolean = validateEmail(editedUser.email);
+                return !isEmailValid || !isPasswordValid;    
             default:
                 return true;
         };
@@ -93,7 +98,11 @@ const SignUpPage: React.FC = (): JSX.Element => {
                 )
             case SignupSteps.CredentialsInfo:
                 return (
-                    <div></div>
+                    <CredentialsInfo
+                        editedEmail={editedUser.email}
+                        editredPassword={editedUser.password || ""}
+                        onChange={onChange}
+                    />
                 )
         }
     }

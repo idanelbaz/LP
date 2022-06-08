@@ -59,6 +59,7 @@ const Input: React.FC<InputTextProps> = ({ value, field, onChange,
                     title={renderTooltipEl(infoTxt)}
                     arrow
                     open={isInfoMenuOpen}
+                    leaveTouchDelay={4000}
                 >
                     <div onClick={toggleIsOpen} className="info-icon-wrapper">
                         <InfoIcon />

@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { coreActions } from '../../store/core/core.actions';
 import { Pages } from '../../store/core/core.interface';
-import { setIsAppLoading } from '../../store/core/core.reducer';
 import { coreSelector } from '../../store/core/core.selectors';
 import { usersActions } from '../../store/users/users.actions';
 import { usersSelector } from '../../store/users/users.selectors';
@@ -41,7 +40,6 @@ const LandingPage: React.FC = (): JSX.Element => {
     };
 
     const doLogin = (password: string, email: string) => {
-        dispatch(setIsAppLoading(true))
         dispatch(usersActions.loginUserReq({ password, email }));
     };
 

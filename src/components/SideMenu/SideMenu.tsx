@@ -4,7 +4,7 @@ import { connect, useDispatch } from 'react-redux';
 import useClickOutsideListener from '../../hooks/useClickOutsideListener/useClickOutsideListener';
 import { coreActions } from '../../store/core/core.actions';
 import { Pages } from '../../store/core/core.interface';
-import { setIsAppLoading, setIsHeaderMenuOpen } from '../../store/core/core.reducer';
+import { setIsHeaderMenuOpen } from '../../store/core/core.reducer';
 import { coreSelector } from '../../store/core/core.selectors';
 import { RootStateInterface } from '../../store/root/rootState.interface';
 import { usersActions } from '../../store/users/users.actions';
@@ -41,7 +41,6 @@ const SideMenu: React.FC<ISideMenuProps> = ({ isMenuOpen, currentUser }): JSX.El
   };
 
   const doLogin = (password: string, email: string) => {
-    dispatch(setIsAppLoading(true))
     dispatch(usersActions.loginUserReq({ password, email }));
 };
 

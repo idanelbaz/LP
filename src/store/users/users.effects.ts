@@ -2,7 +2,7 @@ import { catchError, delay, filter, map, merge, mergeMap, Observable, of, pluck 
 import { Action } from '@reduxjs/toolkit';
 import { UsersSelector, usersSelector } from "./users.selectors";
 import { LoginUserDetails, usersActions, UsersActions } from "./users.actions";
-import { UserLoginReq } from "./users.interface";
+import { User, UserLoginReq } from "./users.interface";
 import { usersService } from "./users.service";
 import { setIsAppLoading, updateAppAlert } from "../core/core.reducer";
 import { AlertTypes, Pages } from "../core/core.interface";
@@ -35,7 +35,39 @@ export class UsersEffects {
       mergeMap(({ token, user }: UserLoginReq) => {
         localStorage.setItem("token", token)
         return [updateCurrentUser(user), updateSelectedUser(user._id),
-          coreActions.setCurrentPage(Pages.Homepage), setIsAppLoading(false)];
+        coreActions.setCurrentPage(Pages.Homepage), setIsAppLoading(false)];
+      }),
+    );
+  }
+
+  private onSubmitUserReq(action$: Observable<Action>): Observable<Action> {
+    return action$.pipe(
+      filter(this.effectUsersActions.submitUserReq.match),
+      pluck("payload"),
+      mergeMap((editedUser: User) => usersService.submitUser(editedUser)),
+      catchError((err: Error, caught) => merge(of(err), caught)),
+      map((registeredUser: User | Error) => ((registeredUser instanceof Error)
+        ? updateAppAlert({ text: "Cannot add user", type: AlertTypes.error })
+        : this.effectUsersActions.submitUserRes(registeredUser))),
+      // TODO: Remove on real server res
+      delay(1200)
+    );
+  }
+
+  private onLoadingApp(action$: Observable<Action>): Observable<Action> {
+    return action$.pipe(
+      filter(this.effectUsersActions.submitUserReq.match || this.effectUsersActions.loginUserReq.match),
+      map(() => setIsAppLoading(true)),
+    );
+  }
+
+  private onSubmitUserRes(action$: Observable<Action>): Observable<Action> {
+    return action$.pipe(
+      filter(this.effectUsersActions.submitUserRes.match),
+      pluck("payload"),
+      mergeMap((registeredUser: User) => {
+        return [updateCurrentUser(registeredUser), updateSelectedUser(registeredUser._id),
+        coreActions.setCurrentPage(Pages.Homepage), setIsAppLoading(false)];
       }),
     );
   }
@@ -43,6 +75,9 @@ export class UsersEffects {
   public allEffects: Array<any> = [
     this.onLoginUserReq.bind(this),
     this.onLoginUserRes.bind(this),
+    this.onSubmitUserReq.bind(this),
+    this.onSubmitUserRes.bind(this),
+    this.onLoadingApp.bind(this)
   ];
 }
 
