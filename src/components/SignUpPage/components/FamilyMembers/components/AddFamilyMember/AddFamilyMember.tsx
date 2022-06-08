@@ -1,12 +1,12 @@
 import { MenuItem, Select } from "@mui/material";
 import classNames from "classnames";
 import React, { useState } from "react";
-import { initFamilyMember } from "../../../../../store/users/users.initialState";
-import { familyMember, familyRelation } from "../../../../../store/users/users.interface";
-import { firstLettersNotEmpty } from "../../../../../utils/utils";
-import DateInput from "../../../../UiComponents/DateInput/DateInput";
-import Input from "../../../../UiComponents/Input/Input";
-import AvatarPicker from "../../AvatarPicker/AvatarPicker";
+import { initFamilyMember } from "../../../../../../store/users/users.initialState";
+import { familyMember, familyRelation } from "../../../../../../store/users/users.interface";
+import { firstLettersNotEmpty } from "../../../../../../utils/utils";
+import DateInput from "../../../../../UiComponents/DateInput/DateInput";
+import Input from "../../../../../UiComponents/Input/Input";
+import AvatarPicker from "../../../AvatarPicker/AvatarPicker";
 
 interface AddFamilyMemberProps {
   onCancel: () => void,
@@ -50,7 +50,7 @@ const AddFamilyMember: React.FC<AddFamilyMemberProps> =
     return (
       <div className="family-members__inputs-container">
         <Input
-          placeholder="name"
+          placeholder="Name"
           value={editedFamilyMember.name}
           onChange={(name: string, value: any) => {
             if (firstLettersNotEmpty(value)) return;
@@ -63,8 +63,6 @@ const AddFamilyMember: React.FC<AddFamilyMemberProps> =
         <Select
           value={editedFamilyMember.relation}
           onChange={(event) => onChangeInputs("relation", event.target.value)}
-          // style={{ height: "2rem" }}
-          // variant="standard"
           className="family-members__inputs-container__select"
         >
           {Object.values(familyRelation).map((reletion: familyRelation) => {

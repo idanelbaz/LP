@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { familyMember } from '../../../../store/users/users.interface';
 import { uuid } from '../../../../utils/utils';
-import AddFamilyMember from './components/AddFamilyMember';
+import AddFamilyMember from './components/AddFamilyMember/AddFamilyMember';
+import FamilyMemberItem from './components/FamilyMemberItem/FamilyMemberItem';
 import './FamilyMembers.scss';
 
 
@@ -38,16 +39,7 @@ const FamilyMembers: React.FC<FamilyMembersProps> = ({ field, onChange, value })
           <>
             <div className="family-members__exist-members">
               {value.map((member: familyMember) => (
-                <div className="family-members__exist-members__member" key={member._id}>
-                  <span className="family-members__exist-members__member__name">{member.name}</span>
-                  <span className="family-members__exist-members__member__reletion">{member.relation}</span>
-                  <span
-                    role="presentation"
-                    onClick={() => removeMember(member._id)}
-                    className="family-members__exist-members__member__remove-btn"
-                  >Remove
-                  </span>
-                </div>
+                <FamilyMemberItem member={member} removeMember={removeMember} key={member._id} />
               ))}
             </div>
             <div className="family-members__inputs-container__save-container" role="presentation" onClick={onAddNewMember}>

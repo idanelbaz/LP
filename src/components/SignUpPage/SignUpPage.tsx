@@ -45,6 +45,8 @@ const SignUpPage: React.FC = (): JSX.Element => {
         switch (currentSignupStep) {
             case SignupSteps.PersonalDetails:
                 return !isNicknameValid || !isBirthdateValid;
+            case SignupSteps.FamilyMembers:
+                return false;
             default:
                 return true;
         };

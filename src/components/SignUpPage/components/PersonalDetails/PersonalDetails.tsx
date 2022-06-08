@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { firstLettersNotEmpty } from "../../../../utils/utils";
 import DateInput from "../../../UiComponents/DateInput/DateInput";
 import Input from "../../../UiComponents/Input/Input";
 import AvatarPicker from "../AvatarPicker/AvatarPicker";
@@ -35,7 +36,10 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({
     return (
         <>
             <Input
-                onChange={onChange}
+                onChange={(name: string, value: any) => {
+                    if (firstLettersNotEmpty(value)) return;
+                    onChange(name, value);
+                }}
                 value={editedName}
                 placeholder="Nickname"
                 field="name"
