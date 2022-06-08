@@ -1,4 +1,4 @@
-import { GenderTypes, SubscriptionTypes, User, UsersInterface } from './users.interface';
+import { familyRelation, GenderTypes, SubscriptionTypes, User, UsersInterface } from './users.interface';
 import ProfileSvg from "../../style/images/profile.svg";
 
 export const usersInitState: UsersInterface = { 
@@ -16,4 +16,13 @@ export const editedUserInit: User = {
   familyMembers: [],
   subscriptionType: SubscriptionTypes.Regular,
   avatarUrl: ProfileSvg
+}
+
+export const initFamilyMember = { 
+  events: [], 
+  name: "", 
+  relation: familyRelation.Child, 
+  _id: "", 
+  birthdate: new Date(), 
+  avatarUrl: ProfileSvg 
 }

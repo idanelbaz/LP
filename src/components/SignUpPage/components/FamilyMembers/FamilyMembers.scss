@@ -1,0 +1,105 @@
+.family-members{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    &__exist-members{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        &__member{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+
+            &__name {
+                width: 50%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &__reletion {
+                width: 25%;
+            }
+
+            &__remove-btn{
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    &__inputs-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+        > * {
+            width: 100%;
+        }
+
+        &__select{
+            margin-bottom: 3rem !important;
+        }
+
+        &__save-container{
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+
+            .save-btn{
+                width: 4rem;
+                height: 2rem;
+                border-radius: 0.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                background-color: yellowgreen;
+                color: white;
+                margin-right: 0.5rem;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .cancel-btn{
+                width: 4rem;
+                height: 2rem;
+                border-radius: 0.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                background-color: yellowgreen;
+                color: white;
+                margin-left: 0.5rem;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }  
+        
+        .choose-avatar-wrapper{
+            margin-top: 2rem !important;
+        }
+    }
+}

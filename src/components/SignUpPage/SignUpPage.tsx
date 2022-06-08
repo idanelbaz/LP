@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { User } from '../../store/users/users.interface';
-import { editedUserInit } from '../../store/users/users.initialState';
-import { SignupSteps, signupStepsArray } from '../../store/core/core.interface';
 import { LinearProgress } from '@mui/material';
-import { usersActions } from '../../store/users/users.actions';
 import classNames from 'classnames';
-import PersonalDetails from './components/PersonalDetails/PersonalDetails';
-import "./SignUpPage.scss";
+import { useDispatch } from 'react-redux';
+import { SignupSteps, signupStepsArray } from '../../store/core/core.interface';
+import { usersActions } from '../../store/users/users.actions';
+import { editedUserInit } from '../../store/users/users.initialState';
+import { User } from '../../store/users/users.interface';
 import { validateNickname } from '../../utils/utils';
+import FamilyMembers from './components/FamilyMembers/FamilyMembers';
+import PersonalDetails from './components/PersonalDetails/PersonalDetails';
+import './SignUpPage.scss';
 
 
 const stepLocation = (currentStep: SignupSteps): number => {
@@ -78,6 +79,14 @@ const SignUpPage: React.FC = (): JSX.Element => {
                         editredBirthday={editedUser.birthdate}
                         onChange={onChange}
                         editedAvatarUrl={editedUser.avatarUrl}
+                    />
+                );
+            case SignupSteps.FamilyMembers:
+                return (
+                    <FamilyMembers
+                        field="familyMembers"
+                        onChange={onChange}
+                        value={editedUser.familyMembers}
                     />
                 )
         }

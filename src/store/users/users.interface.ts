@@ -33,7 +33,8 @@ export interface familyMember {
   relation: familyRelation,
   events: Array<string>,
   _id: string,
-  birthdate: Date
+  birthdate: Date,
+  avatarUrl: string
 }
 
 export enum familyRelation {
